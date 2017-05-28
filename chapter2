@@ -1,0 +1,147 @@
+2.1
+Use divide and conquer to multiply 10011011 and 10111010
+we break into 1001 1011 and 1011 1010 - 
+
+2.2
+Show that for any positive integer n and base b, there must be a power of b lieing in the range n,bn
+n<b^k - let k be the largest power of b that's just greater than n. and l be the largest power of b 
+just less than n. b^l<n.
+n<b^k and bn<b^(k+1)
+b^(l+1)<bn . need to prove that l+1 = k then n<b^k<bn
+
+2.3
+(a) T (n) = 3T (n/2) + O(n) = 3T(n/2)+cn
+    T(n) = 3(3T(n/4) + O(n/2)) +O(n) = 9T(n/4)+ 3/2cn+cn
+    T(n) = 3( 3(3T(n/8) + O(n/4)) +O(n/2)) + O(n) = 27T(n/8) + 9/4cn + 3/2cn + cn
+    the general form is 3^kT(1)+(r^(k)-1)/(r-1) where r is 3/2
+    k should be logn/log2
+(b) T(n) = T(n-1)+c
+    T(n) = T(n-2)+2c
+    T(n) = kn
+
+2.4
+A(n) = 5A(n/2)+O(n) log5/log2 - n^(log5/log2)
+B(n) = 2B(n-1)+O(n) exponential
+C(n) = 9C(n/3)+O(n^2) log9/log3 - n^2logn - this one
+
+2.5
+(a) T(n) = 2T(n/3) + 1 . This is O(n^(logn*log2/log(3)))
+(b) T(n) = 5T(n/4) + n . This is O(n^(logn*log5/log4))
+(c) T(n) = 7T(n/7) + n . this is O(n^(logn)) - O(n)
+(d) 9T(n/3) + n^2 . this is O(n^2logn)
+(e) 8T(n/2) + n^3 . this is O(n^3logn)
+(f) 49T(n/25)+n^(3/2)logn . this is #dunno
+(g) T(n)=T(n−1)+2 . this is O(n)
+(h) T(n)=T(n−1)+n^c,where c ≥ 1 is a constant .#dunno
+(i) T(n)=T(n−1)+cn,where c>1 is some constant #dunno
+(j) T(n)=2T(n−1)+1, this is O(2^n)
+(k) T(n)=T(Sqrt(n))+1 . #dunno 
+
+2.6
+(a) at any time before t0, the impulse response is 1/t0
+(b) 1/t0*(1-u(t-t0))
+
+2.7
+0, the sum of the nth roots is always zero
+
+2.8
+(a) w should be the 8th root of unity
+()
+
+2.9 Practice polynomial mulplication by FFT
+(a) Done
+(b) Done
+
+2.10
+(x-3)(x-5)(x-a)(x-b)=2 when x=1 and =1 when x=2 and=4 when x=4
+x=1 , -2*-4*(1-a)(1-b)=2
+      -1*-3*(2-a)(2-b)=1
+      1*(-1)(4-a)(4-b)=4
+
+2.11
+ehn.. I can multiply everything and "prove it"
+Use induction?
+
+2.12
+T(n)=2*T(n/2)
+
+2.13
+A little ill-defined. Are we just concerned with the shape?
+B3 is 1.
+B5 is 1
+
+2.14 
+Sort the array in O(nlogn). create a new array and add to new array
+if it is the first occurrence
+
+2.15
+in place.. keep two limits... if current is less than move limit
+left by one position.if current is the same swap
+
+2.16
+start from pos = 1 and keep multiplying by 2. until the value at pos is greater than
+x. then a binary search in the bound, pos/2 and pos.
+
+2.17
+check pos = n/2 . is A[p/2] = p/2 we are done. if A[p/2]>p . then it can't be found
+in the left of the array.. since every thing is at greater than p already.
+check the left. where A[p/2]<p #undone
+
+2.18
+
+2.19 K-WAY MERGE
+(a) 
+(b) 
+
+2.20
+Sorting by counting
+
+2.21
+
+2.22
+kth smallest element in the union of two lists. you want to eliminate 
+portions of the two arrays. check the kth position of the two arrays.
+want to remove as many elements so that there are only k elements
+combined in both arrays. then check the last two, which one is greater
+that's the kth item.
+
+2.23
+(a)
+(b) It is obvious?? :)
+
+2.24
+(a) QuickSort - pick a random element. partition the array into items greater
+    than and less than that element. Do the same for the left and right arrays
+    the original array was divided into.
+(b) 
+(c) 
+
+2.25
+(a) if n%2==1
+        z = 1010*fastmultiply(pwrbin(n/2),powrbin(n/2) )
+    else:
+        z = fastmultiply(pwrbin(n/2),pwrbin(n/2))
+    
+(b) return dec2bin(xl)*n/2+dec2bin(xr)
+
+2.26    No? not sure
+
+2.27
+(a) 
+(b) nxn is not 2x2?
+(c) 
+
+2.28
+
+2.29
+(a) it is obvious?
+(b) n additions, n multiplication. A polynomial that's a power. say
+    (x+1)^n
+
+2.30 FT in modular arithmetic
+
+2.31
+(a) it is obvious? :)
+
+2.32
+

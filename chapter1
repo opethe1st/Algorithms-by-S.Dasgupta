@@ -1,0 +1,243 @@
+1.1
+true because, the maximum possible value for the addition of three single bit numbers is 3*(b-1)
+where b is the base. it is at most 2 bit long since 3*(b-1) <=b**3 for all b>=2
+
+1.2
+the representation of a number in a given base has a length, logn/logb
+so for a given n, we have logn/log2 for base 2 as the number of digits
+and logn/log(10) for base 10 as the number of digits
+so log(10)/log(2) which is 1/0.3010 .. which is 3.something , the ceil of which is 4
+
+1.3
+depth should be >=logn/logd
+The tree has the least possible depth when completely filled at each level
+At level 1, we have d children
+level 2, we have d^2 children
+and at level n we have d^n children
+in total, if completely filled, the tree has O(d^(h+1)) nodes..(when you sum the geometric series, you get (d^(h+1)-1)/(d-1) )
+h is the number such that d raised to h is n. which is logn/logd 
+
+1.4 Show that log(n!) = 0(nlogn)
+first show that n!<n^n . take log of both sides. Sum(log i) for i=1 to n  and sum(log n) for i=1 to n.
+log is strictly increasing function and thus it is proven that n!<n^n 
+for the lower bound, (n/2)^(n/2)<n! take log of both sides. 
+we get n/2log(n/2) and sum(log i ) for i in 1 to n . we can pair each i term. logk +logn-k for k =1 to n/2.
+log is a convex function so logk+log(n-k)/2>log(n/2). clearly 
+sum(log i ) for i, 1 to n>n/2log(n/2) 
+
+1.5
+the series is Sum 1/i for i =1 to n to show that the upper bound is logn. increase each number to the next power of two.
+This means that each number is going to be 2^p and there are going to be 2^p of each power of two. for n there is at most logn
+powers of two and each term add about 1 to the sum. so the answer is O(logn).
+For the lower bound, each each number to the next power of 2. For each power,2^-k, there are 2^(k-1) terms so each power present 
+contributes half to the sum, there are logn powers present in the series so Omega(logn). 
+Since O(logn ) and Omega(logn) then Theta(logn) as it was required to prove.
+
+1.6
+It works!
+basically if you have for example 1001010*101011. Basically in the binary representation, we represent the number as a sum 
+of powers of two. what the grade school multiplication is multiply by these powers individually and add the sum.
+
+1.7 
+How long does the recursive multiplication algo take to multiply a n-bit number and m-bit number
+at each level, the m-bit number get reduced by one bit and you either multiply by 2 or add n-bit number with m-k bit number
+where k is the level. that's O(max(m,n)) at each step. so O(mn)
+
+1.8
+Suppose you know that k=qy+r 
+what is x? where x=2k and x=2k=1.
+for case 1. 
+2k=2qy+2r, x = 2qy+2r , then we need to make sure that 2r (the remainder term) is less than q. if it isnt then we get 2q+1 
+for our q term.
+for case 2.
+2k=2qy+2r+1, x=2qy+2r+1, then we need to make sure that 2r+1( the remainder term is less than q). if it isnt then we get 2q+1 
+for our q term.
+
+1.9
+if x-x` is divisible by  N and y-y` is divisible by N. then x+y-x`-y` is also divisible by N and thus
+x+y=x`+y` mod N
+
+1.10
+a=b mod N means that a+Nk=b 
+if M divides N i.e N=CM then a +N*C*M=b which is of the form a+Q*M=b 
+which means that a=b mod M 
+
+1.11
+yes , (4^6) %35 =1
+      (9^6) %35 =1
+      4^1536 is 4^6*256=1
+      9^4824 is 9^6*804=1
+      1-1=0 
+      so 4^1536-9^4824=0 modulo 35
+
+1.12
+2= -1 modulo 3
+(-1)^(2^2008) ==1 modulo 3
+
+1.13
+5*5=25 which is -6
+-6*-6 =36 which is 6
+6*6 =36=6
+5^4=6
+5^4*k=6 so 5^30000 = 6
+6^2=6
+6^(2*k)=6
+6-6=0 modulo 31 so 5^(30000)-6^(123456) is divisible by 31
+
+1.14
+Use matrices!
+Compute my repeated squaring and make sure your result is still modulo p. Each multiplication is at most logp^2 - a constant 
+steps. the same multiplications but mod p
+So we have O(M(n)) and M(n) is a constant logp^2
+
+1.15
+find necessary and sufficient conditions such that
+ax=bx mod c. then a=b
+x has to have an inverse mod c so you can multiply both sides by the inverse of x
+
+1.16
+n^15.
+By squaring. we need to calculate the 2,3,6,7,14,15 - that's 6
+but it can be done with 2,3,6,12,15 - that's 5 multiplications that generate these numbers
+Oh.. it is mod c. so just need the inverse of a. to compute some powers
+
+1.17 #Unsure about my arguments
+y-1 multiplications for the iterative algo. at each iterative step k, we multiply n-bit number by a kn bit number.
+which is O(y*n) (there are up to y steps. similar to 1+2+3..y). and so the entire algorithm takes O(n*y^2) for the entire operation.
+for the recursive exponential squaring, we have logy steps. but each multiplication takes O(2^2k) for each iteration k.
+That's O(N) for the entire algorithm 
+
+1.18
+gcd(220,588) by factorization and by the euclid algorithm
+220=10*22 = 2*2*5*11
+588=2*298=2*2*149
+so gcd is 4
+by the euclid algo.
+gcd(220,588)=gcd(220,588-220)=gcd(220,368)=gcd(220,148)=gcd(220-148,148)=gcd(72,148)=gcd(72,148-72)=gcd(72,76)=gcd(72,4)=gcd(0,4)=4
+
+1.19
+gcd(Fn+1,Fn) = gcd(Fn-1,Fn) = until you get to gcd(1,2)=1 at the base case
+
+1.20
+inverse of 20 mod 79 is 4
+inverse of 3 mod 62 is 33
+inverse of 21 mod 91 is no inverse, gcd is not zero
+inverse of 5 mod 23 is 14
+
+1.21
+every number except multiples of 11
+
+1.22
+True. if it has an inverse we can find ax+by=1 which means ax=1 mod b or by=1 mod a. they both have mod inverse mod each other
+
+1.25
+2^125 mod 127. 127 is prime, which means that 2^126=1. what's the mod inverse of 2 mod 127? 64? yes. so 2^125=64 mod 127
+
+1.26 find the least significant digit of 17^(17^17)
+it is 7.
+using a^(p-1)(q-1) =1 mod(pq)
+in this case pq is 2 and 5.
+so 17^4=1
+so we need to find what 17^17 is mod 4. it is clearly 1 since. 17=4*4=1
+so we have 17^1%10 and that's 7
+
+1.27
+what's the inverse of e=3 mod (p-1)(q-1)
+p=17 ;q=23 - 16*22=352. find the mod inverse of 3 mod 352 . it is 235.
+So M =41 would be encoded as 41^3 modpq = 105
+
+1.28
+RSA cryto with p=7,q=11. find the appropriate d and e.
+a^(p-1)(q-1)=a mod pq. so we need de = 1 mod(p-1)(q-1) = 60
+d=5 and e = 12
+
+1.29
+(a)Random bits. Just 2? to choose two numbers from m? or is it logm (the number of bits in m?)
+   It is universal since m is prime. m being prime. Means that the probability that the pair
+   x1,x2 map to the same hash as y1,y2 is 1/m . We have a1(x1-y1)=a2(x2-y2) mod m . a2 has to be 
+   (x2-y2)^-1*a1(x1-y1)=a2 the probability of that is 
+(b)if two pairs map to the same hash. then a1(x1-y1)=a2(x2-y2) mod m. where m is 2^k . 
+
+(c)
+
+1.31
+(a)
+How many bits are in N^N. we have NlogN bits. O(NlogN)
+How many bits are in N/2^(N/2). we have N/2logN/2 bits . this Omega(NlogN)
+so N^N has Theta(NlogN) bits
+(b)#Unsure about this argument
+iteratively. ans=1
+for i in 1 to n, ans*=i
+at each stage you are multiplying on average N^2 bits by N bits? N times? for O(N^4)? 
+
+1.32
+(a) 
+Find the binary representation of N. the square root must have half about length of the binary representation in its own
+representation. Then check the numbers that have that length in their binary representation. Can do a binary search.
+1000 to 1111. each step does multiplication. which is O(n^2). and there are at most n/2 multiplications. so we have O(n^3)
+With a lookup table for logarithms. We can have O(1). 
+(b)
+(c)
+How to determine if a number is a power. Trial and error with a lookup table. Try from logN/2 to logN/floor(logN). the closest
+integers with logs just less than and greater than the logs we are checking
+
+1.33
+The LCM can be computed from the lcm = a*b/gcd(a,b). a*b is O(n^2) if a and b are both n-bit integers. gcd(a,b) is O(n^3)
+so in total, the algo is O(n^3) since this term dominates
+
+1.34 #Seems like I need to read up and master probability
+
+1.35
+Wilson's theorem
+(a) for a number to be its own inverse mod p. a^2=1 mod p. (a-1)(a+1)=0 mod p. a+1 has to 0 mod p or a-1 has to be 0 mod p. 
+    so we have p-1 is it's own inverse and 1 is it's own inverse.
+(b) so every other number, it has to be paired with an other distinct number. p-3 numbers are in pairs of number and inverse and
+    multiplied together we get 1. 1 and p-1 are multiplied together to get -1. 
+
+(c) consider d=gcd(N,(N-1)!) if N is not prime,then N must have two factors both less than N. so N-1! is a multiple of N.
+    i.e (N-1)!=0 mod N.
+(d) It is computationally expensive. Involving O(N^3) operations
+
+1.36
+(a) suppose p=3 mod4 show that (p+1)/4 is an integer. if p=3 mod 4 then p=4*k+3. we have (4*k+4)/4 which is an integer
+(b) a^(p+1)/2 when squared, a^(4k+4)=a mod p.
+
+1.37
+(a) repeats in cycles of 3 and 5 respectively. If two numbers have the same remainder mod 3 and 5. then the remainder is mod15
+(b) i=j mod p means i=j+mp i=j mod q means i=k+nq. hm.. every number in the range pq, can be expressed as a*q+r . so no two
+    #Not solved yet
+
+1.38
+(a) p=13, 1001 ,r =3 since 77*13 is 1001. for 17. r=8
+(b) we know that 10^(p-1)=1 mod p . Assume r is not a divisor of p-1. then we have 10^(r)=1 mod p. and this system has two
+    inverses.
+
+1.39
+a^(b^c) modp . we need to know what b^c is mod(p-1).
+
+1.40
+it follows that 
+x^2=1 mod N and x!=1 mod N
+we have (x-1)*(x+1)=0 mod N. N is composite. It can be expressed as the product of these two numbers
+
+1.41
+(a)   the set is (0,1,2..p-1)
+      if x^2=a mod p. then (p-x)^2=a mod p too
+
+1.42
+Well.. you can easily find the inverse of e. It is simply p-e-1
+
+1.43
+N,e,d can we factor N? Chinese remainder theorem? hm if e is 3, can we get p and q? need 3*d=1 mod(p-1)(q-1). 
+
+1.44
+
+1.45
+(a) To confirm if something is authentic
+
+
+
+
+
+
+

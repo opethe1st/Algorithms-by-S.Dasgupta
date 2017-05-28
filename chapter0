@@ -1,0 +1,78 @@
+f = O(g) means that as n ( the problem size tends to infinity) f is bounded above by g
+f = Ω(g) means that as n ( the problem size tends to infinity) f is bounded below by g
+f = Θ(g) means that as n ( the problem size tends to infinity) f is bounded both above and below by g
+f=O(g) is analogous to f<=g
+0.1
+    statement check
+(a) f=Θ(g) yes
+(b) f=O(g) yes
+(c) f=Θ(g) yes
+(d) f=Θ(g) yes
+(e) f=Θ(g) yes
+(f) f=Θ(g) yes
+(g) f=O(g) #unsure
+(h) f=Ω(g) yes
+(i) f=Ω(g) #unsure
+(j) f=Ω(g) yes
+(k) f=Ω(g) yes
+(l) f=Θ(g) #unsure
+(m) f=Θ(g) #unsure
+(n) f=Θ(g) yes
+(o) f=Ω(g) yes
+(p) f=Ω(g) #unsure
+(q) f=O(g) yes
+#need to cross check later
+
+0.2
+(a) if c<1. then it can be expressed as (1-c^(n+1))/(1-c). 
+at the limit, this is 1/(1-c). I can always get a constant 
+number greater than this and the lower bound is 1 thus it is Θ(g)
+(b) then g(n)=n which is clearly Θ(n)
+(c) I could use n*c^n as an upper bound and c^n as a lower bound.
+it is bounded from both ends by c^n functions and thus is Θ(c^n)
+
+0.3
+F6 is what?
+F0=0
+F1=1
+F2=1
+F3=2
+F4=3
+F5=5
+F6=8 which is greater than or equal to 2^3
+F7=13 which is greater than or equal to 2^3.5
+F8=21 which is greater than or equal to 2^4
+Assume that Fn-1 >= 2^(0.5*(n-1))
+Assume that Fn-2 >= 2^(0.5*(n-2))
+then I need to prove that Fn>=2^(0.5*n)
+expanding the left hand side
+Fn=Fn-1+Fn-2
+it suffices to prove that 2^(0.5(n-1))+2^(0.5(n-2))>=2^(0.5n)
+2^(0.5(n-2))*(2^0.5+1)>=2^(0.5n)
+2^0.5+1>=2 which is true since 2^0.5==1.414..
+QED!
+
+0.4
+(a) for a 2x2 matrices
+    (a b) X (e f) = (ae+bg  af+bh)
+    (c d)   (g h)   (ce+dg  cf+dh) 
+    there are four additions and eight multiplications
+(b) basically multiplication by squaring. Recursively,
+    if you have X^N, this is (X^N/2)^2 if N is even or 
+    X*X^N-1 if N is odd. then apply this recursively. 
+    This alternates between halving and reducing the problem
+    size by one at each iteration. so it will take 
+    log(N) steps
+
+(c) Show that all intermediate results of fib3 are O(n) bits long
+    we start with just one bit.When you multiply two 1 bit numbers
+    and add two of them, you can get at most 2 bits numbers.
+    The general argument is that by adding two numbers that have n 
+    bits, you can get at best a n+1 bit number. QED
+
+(d) At each iteration you do 8 multiplications. Each multiplication
+    is M(n) and there are logn iterations so O(M(n)logn). QED
+
+(e) hm.. M(n)/4^(k) for multiplications at each iteration. Add this up and 
+    we have 1-4^(k+1)/(1-1/4) = C and we have C*O(m) multiplications required
+    QED
