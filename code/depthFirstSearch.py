@@ -28,13 +28,48 @@ def dfs(G, u):
     post[u] = clock
     clock += 1
 
+"""
+clock = 0
+for node in range(9):
+    if not visited[node]:
+        dfs(G, node)
+print
+
+print pre
+print post
+"""
+# 3.2 New Graph
+
+G2 = [[] for i in range(8)]
+G2[0].append(1)
+G2[0].append(5)
+G2[1].append(2)
+G2[1].append(4)
+G2[2].append(3)
+G2[3].append(1)
+G2[3].append(7)
+G2[4].append(3)
+G2[4].append(6)
+G2[5].append(6)
+G2[5].append(4)
+G2[6].append(5)
+G2[7].append(6)
+
+G3 = [[] for i in range(8)]
+G3[0].append(2)
+G3[1].append(2)
+G3[2].append(3)
+G3[2].append(4)
+G3[3].append(5)
+G3[4].append(5)
+G3[5].append(6)
+G3[5].append(7)
 
 clock = 0
-# for node in range(9):
-#    if not visited[node]:
-#        dfs(G, node)
-#        print
-dfs(G, 0)
+for node in range(8):
+    if not visited[node]:
+        dfs(G3, node)
+        print
 print
 
 print pre
