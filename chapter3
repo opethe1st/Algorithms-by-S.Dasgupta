@@ -47,3 +47,69 @@ Do I really want to do this? I think I grasp this point already
 
 3.4
 
+3.5
+def reverseGraph(G, u):
+    for v in G[u]:
+        if u not in RG[v]:  # don't think this is linear time, if I have to search
+            RG[v].append(u)  # make the parent the child in the reversed Graph
+            reverseGraph(G, v)
+I can also do this by extracting all the edges,
+reversing them and constructing an adjacency representation again.
+
+3.6
+(a) every edge represents an addition to the
+    in and out degree
+(b) it is obvious? even+ odd*even = even
+(c)
+
+3.7
+(a) do a dfs but mark each node as belonging to v1 or v2
+    def dfs(G,u,c):
+        if colour[u]== -1:  # not coloured
+            colour[u] = c
+        elif colour[u]!=c:
+            return False # graph is not bipartite  
+        for v in G[u]:
+            ans&=dfs(G,v, not(color))
+        return ans
+
+(b) if it has a cycle of odd length.. then 0-1-0-1
+(c) 3 colours?
+
+3.8
+10,7,4 - exactly 2 pints in 7 or 4 container. 10 - 4 put in the 7 pint container. 
+then fill the 4 pint container from the 6 pints in the 7 container.
+2 pints in the 7 container. 
+(a) if there is a path that has a distance of exactly 2?
+(b)
+(c)
+
+3.9
+visited[u]=True
+ans = 0
+for v in G[u]:
+    if not visited[v]:
+        dfs(G, v)
+        ans+=len(G[v])
+twodegree[u] = ans
+
+3.10
+def dfs(G,u):
+    visited = [False]*n
+    stack = [u]
+    clock = 0
+    prev[u] = clock
+    clock+=1
+    while stack:
+        u = stack.pop(-1)
+        visited[u] = True
+        post[u] = clock
+        clock+=1
+        for v in G[u]:
+            if not visited[v]:
+                stack.append(v)
+                prev[v]= clock
+                clock+=1
+
+3.11
+Try to find a path from v to u given edge (u,v) . do a dfs
