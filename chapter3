@@ -138,5 +138,19 @@ first in , last out -- basically.
     each node is treated exactly once and we have m operations
     to reduce the innodes. O(m+n)
 
+3.15 
+(a) This is exactly the same as the problem of finding out if the
+    graph is composed of just one strongly connected component.
+(b) How is this weaker though? can't I just use the town hall as 
+    a stop on the way to another point? I get it.. the graph might
+    have nodes not reachable from the town hall in the first place.
+    Basically do a dfs starting from the town hall and see if it forms
+    a strongly connected component.
 
+3.16  You need to find the longest path in the dag from source to sink.
+    it is definitely a dag since you can't have circular dependencies
+    in the course list. Hm.. just do a dfs? and keep track of the distance
+    from a source. 
+
+3.17
 
