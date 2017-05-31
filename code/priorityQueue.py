@@ -72,6 +72,12 @@ class TestCase(unittest.TestCase):
         self.Queue.push(0)
         self.assertEqual(min(self.Queue.arr), self.Queue.arr[0])
 
+    def test_minAfterPopPushPop(self):
+        pass
+
+    def test_EnsureChildrenAlwaysGreaterThanParents(self):
+        """test recurcisively :). It is a tree afterall"""
+
 
 if __name__ == "__main__":
     unittest.main()
