@@ -46,6 +46,10 @@ Do I really want to do this? I think I grasp this point already
 (d) it has 8 possible topological orderings
 
 3.4
+(a) C,D,F,J then G,I,H then A then B then E. 
+(b) source SCCs are B and E. sink is the component formed by C,D,F,J
+(c) Done :)
+(d) 2 edges.. basically you need to remove the sources and sink
 
 3.5
 def reverseGraph(G, u):
@@ -112,4 +116,27 @@ def dfs(G,u):
                 clock+=1
 
 3.11
-Try to find a path from v to u given edge (u,v) . do a dfs
+Check if there is a back edge that goes from v to e.
+You can read this off the post array.
+
+3.12
+post(u)<post(v)
+post[u] gives us the time a node leaves the stack.
+In a tree all the nodes are traversed and backtracked
+first in , last out -- basically.
+
+3.13
+(a) in the DFS search tree.. hmm
+(b) a graph connected in a circle?
+(c) basically any example, since there won't path between 
+    nodes in different components in the reverse direction
+
+3.14 First you need to keep track of the number of nodes, directed
+    at a node. 
+    Then get a list of nodes with 0. then add to the linearized
+    graph. then reduce all the innodes of it's neighbors by one.
+    each node is treated exactly once and we have m operations
+    to reduce the innodes. O(m+n)
+
+
+

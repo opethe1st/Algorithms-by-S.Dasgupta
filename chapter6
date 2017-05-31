@@ -1,0 +1,10 @@
+6.1 A contiguous subsequence of a list S is a subsequence made up of consecutive
+    elements of S. For instance, if S is 
+        5,15,-30,10,-5,40,10
+    then 15,-30,10 is a contiguous subsequence but 5,15,40 is not.
+    Given an alogorithm for the following task
+    Input: a list of numbers a1,a2,..an
+    Output: The contiguous subsequences of maximum sum
+
+    Use prefixSum to find the sum to a given number.
+    See MaxContiguousSubSequence.py
