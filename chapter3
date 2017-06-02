@@ -147,10 +147,29 @@ first in , last out -- basically.
     Basically do a dfs starting from the town hall and see if it forms
     a strongly connected component.
 
-3.16  You need to find the longest path in the dag from source to sink.
+3.16  
+    You need to find the longest path in the dag from source to sink.
     it is definitely a dag since you can't have circular dependencies
     in the course list. Hm.. just do a dfs? and keep track of the distance
     from a source. 
 
 3.17
 
+3.18 
+    simply do pre[u]<prev[v]<post[v]<prev[u] - tree and forward edge. In every other
+    case, u is not an ancestor of v.
+
+3.19
+    z . Get to the leaf and save the x value. then compare the returned x values of its descendants.
+    def dfs(G,u):
+        visited[u] = True
+        maxleaf = -float('inf')
+        for v in G[u]:
+            maxleaf = max(maxleaf,dfs(G, v))
+        z[u] = maxleaf
+        return maxleaf
+
+3.20
+
+3.21
+    
