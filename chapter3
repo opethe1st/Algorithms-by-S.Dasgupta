@@ -172,4 +172,38 @@ first in , last out -- basically.
 3.20
 
 3.21
+    colour the nodes as they are visited? if you have a backedge and are 
+    forced to color it the opposite color then it has odd length
+
+3.22
+    Bfs/dfs from every edge and check if every node was visited.
+    find the strongly connected component and linearise. this node
+    must be a source... do the dfs in the reverse graph. use it to
+    find the greatest post number.. would let us know a source
+
+3.23
+    Do a dfs or a bfs. Basically, s->t and count the number of times, the 
+    algo reaches t
+    def dfs(G,u):
+        visited[u] = True
+        if u == t:
+            return 1
+        for v in G[u]:
+            count += dfs(G,v)
+        return count
+
+3.24
+    use a dfs to try all paths.. once there is no place to visit.
+    Count the number of vertices in the path
+
+3.25
+     topo sort. work backwards and do min(cost[u]) for its neighbors
+
+3.26
+
+3.27
+
+3.28
+
+3.29
     
