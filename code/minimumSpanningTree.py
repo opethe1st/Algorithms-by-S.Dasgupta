@@ -2,8 +2,8 @@ def Kruskal(G, n):
     """Given an undirected weighted Graph return it's minimum spanning tree
     Graph G is represented by a list of edges and weights, 
     n is the number of nodes"""
-    parent = [0]*n
-    rank = [0]*n
+    parent = [0] * n
+    rank = [0] * n
 
     def makeset(A):
         "make disjoint where every element is a singleton set"
@@ -28,10 +28,18 @@ def Kruskal(G, n):
             parent[rootv] = rootu
     makeset(range(n))
     G.sort()
-    MinSpanTree = set()
+    MinSpanTree = []#set()
     for edge in G:
         w, u, v = edge
         if find(u) != find(v):
-            MinSpanTree.add((w, u, v))
+            MinSpanTree.append((w, u, v))
             union(u, v)
     return MinSpanTree
+
+
+G = [(1, 1, 5), (6, 1, 2), (2, 2, 5), (1, 5, 6), (5, 2, 3), (6, 3, 4),
+     (5, 3, 6), (3, 6, 7), (3, 7, 8), (5, 4, 6), (7, 4, 8), (2, 2, 6),
+     (4, 3, 7)]
+minSpanTree = Kruskal(G, 9)
+print minSpanTree
+print sum([u for u, v, w in minSpanTree])
