@@ -30,17 +30,58 @@ BellmanFord on the graph at each iteration
     till it reached the original node again, if it does.
 
 4.4 Length of the shortest cycle
-    when v and w are cross edges? yup.. so you need to do level[v]+level[w]+1 to get a shortest cycle.
-    hm.. no cross edges in undirected graphs. if level is the shortest distance to the root then we
-    have a problem.
+    What happens when the shortest cycle consists of two backedges?
 
 4.5 
+    #not tested yet
+    def bfs(G, u):
+        visited[u] = True
+        level[u] = 0
+        stack = [u]
+        while stack:
+            u = stack.pop(0)
+            for v in G[u]:
+                if not visited[v]:
+                    stack.append(v)
+                    level[v] = level[u] + 1
+                if level[v] == (level[u]+1): #if it has the same length as the previous v
+                    path[v] += path[u] 
+    
 4.6 Assume it is not a tree.
 
-4.7 
+4.7 Run Dijkstra's algorithm on the Graph G. then compare the lengths found by both trees.
 
 4.8 It is not a valid method since each path gets increased by a different
     number depending on the number of edges it has.
 
 4.9 Yes, it can. supoose for one of its neighboring edges, it is s->t is 2
+
+4.10
+    Do explore on the edges, K times.
+
+4.11
+    Do a dfs, to check all paths.. if a back edge is encountered then we have a cycle and 
+    check the length of the cycle.
+
+4.12
+    start (u,v) and dfs.. and look for a cycle.
+
+4.13
+(a) Connect two cities with an undirected edge if le>=L
+    Then do a bfs or a dfs to determine if t is reachable from s 
+(b) Find the minimum distance between cities in the path from s to t.
+    But it can be less I think. do a binary search?
+
+4.14
+    Find the all the shortest paths to v0 and all the shortest paths from v0
+
+4.15
+    Use dijkstra's algorithm.. 
+    if dist[v]==dist[u]+w[(u,v)]: 
+        then  usq[s] = True 
+
+4.16
+(a) lol.. it is obvious? 
+(b) parent is j/d and its children are j*d+i where i is from 0 to d-1
+
 
