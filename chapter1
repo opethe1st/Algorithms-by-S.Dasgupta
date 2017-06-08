@@ -206,6 +206,7 @@ Wilson's theorem
 (a) repeats in cycles of 3 and 5 respectively. If two numbers have the same remainder mod 3 and 5. then the remainder is mod15
 (b) i=j mod p means i=j+mp i=j mod q means i=k+nq. hm.. every number in the range pq, can be expressed as a*q+r . so no two
     #Not solved yet
+(c) find A such that A=a mod p, A=b mod q, A=c mod r . That's A = a(qr)(qr^-1 mod p)+b(pr)(pr^-1 mod q) +c(qr)(qr^-1 mod r) 
 
 1.38
 (a) p=13, 1001 ,r =3 since 77*13 is 1001. for 17. r=8
