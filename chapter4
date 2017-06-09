@@ -83,5 +83,41 @@ BellmanFord on the graph at each iteration
 4.16
 (a) lol.. it is obvious? 
 (b) parent is j/d and its children are j*d+i where i is from 0 to d-1
+(c)
+(d) just ensure that j/d is smaller than every j 
 
+4.17
+(a) make dummy nodes and do a bfs.
+(b) 
+
+4.18
+for v in G[u]:
+    best[v]= min(best[v], best[u]+1)
+
+4.19
+for v in G[u]:
+    cost[v] = min(cost[v], cost[u]+w[(u,v)]+c[v])
+
+4.20
+Do a shortest path from one of the end of the edge and 
+Basically, shortest path with new edge e = (u,v)
+nshortest[v] = shortest[u]+WithNewEdgeshortest[v]
+maxdecrease = max(maxdecrease, shortest[v]-nshortest[v])
+
+4.21
+(a) edges should be log(rateab). but is a longest path problem.
+    I could have just negated the edges but, there are cycles in this
+    graph. Just do dijkstra's but with a modified condition?
+    Use a max heap?
+    for v in G[u]:
+        if longest[v]<longest[u]+w[(u,v)]:
+            longest[v]=longest[u]+w[(u,v)]
+
+    Nah.. just use Bellman-Ford to find the shortest path in the 
+    general graph with cycles and negative edges
+
+(b) Means we have a cycle if the shortest path can still be reduced even 
+    after n-1 explores on all edges.
+
+4.22
 
