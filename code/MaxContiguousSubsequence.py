@@ -12,4 +12,12 @@ def solution(A):
     return max(dp)
 
 
+def solution2(A):
+    m = [0]*len(A)
+    m[0] = A[0]
+    for i in range(1, len(A)):
+        m[i] = max(m[i-1]+A[i], A[i])
+    return max(m)
+
 print solution([5, 15, -30, 10, -5, 40, 10])
+print solution2([5, 15, -30, 10, -5, 40, 10])

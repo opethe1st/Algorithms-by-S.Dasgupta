@@ -2,7 +2,7 @@ visited = [False] * 11
 prev = [-1] * 11
 post = [-1] * 11
 
-
+# this is wrong somehow..
 def dfs(G, u):
     global clock
     #  visited = [False] * 11
@@ -15,6 +15,7 @@ def dfs(G, u):
         u = stack.pop(-1)
         print u,
         #visited[u] = True
+        # this post value is wrong.
         post[u] = clock
         clock += 1
         for v in G[u]:
