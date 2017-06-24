@@ -5,4 +5,31 @@
     (4, 3, 7), (5, 4, 6)]
 
 5.2
-    
+(a) Prim's algo. Explored region.
+    A-B-
+(b)
+
+5.3
+Yes, mark all back edges
+
+5.4
+Assume it has less than n-k edges, say n-k-1 edges. then every two edges can be connected by a single edge to form a
+connected component. so we have n - (n-k-1) components.. so we can form k+1 components at least.. it can't form k components
+
+5.5
+(a) The minimum spanning tree cannot change because all minimum spanning trees have n-1 edges and the new weight of 
+    the minimum spanning tree is simply the old + (n-1).
+(b) The shortest paths can changes because different short paths can have different number of edges and so changes differently
+    from other shortest paths.
+
+5.6
+It uses a greedy algo to select the least weighted edge that hasn't been selected and won't form a cycle. 
+Making a different choice when selecting the minimum spanning tree won't result in a minimum spanning tree.
+
+5.7
+Use a greedy algo to select the edge with the greatest weight at each iteration that does create a cycle.
+
+5.8
+Intuitively, I would say it is impossible. 
+
+5.9
